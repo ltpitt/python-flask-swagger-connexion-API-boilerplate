@@ -5,24 +5,24 @@ import logging
 
 from connexion import NoContent
 
-# our memory-only pet storage
+# Memory-only storage
 CATEGORIES = {}
 SHOPS = {}
 
 
 def get_shops(limit, shop_type=None):
-    return [shop for shop in SHOPS.values() if not shop_type or shop['animal_type'] == shop_type][:limit]
+    return [shop for shop in SHOPS.values() if not shop_type or shop['shop_type'] == shop_type][:limit]
 
 def get_shop(shop_id):
-    pet = SHOPS.get(shop_id)
-    return pet or ('Not found', 404)
+    shop = SHOPS.get(shop_id)
+    return shop or ('Not found', 404)
 
 def put_shop(shop_id, shop):
     exists = shop_id in SHOPS
     shop['id'] = shop_id
     if exists:
         logging.info('Updating shop %s..', shop_id)
-        SHOPS[shop_id].update(pet)
+        SHOPS[shop_id].update(shop)
     else:
         logging.info('Creating shop %s..', shop_id)
         shop['created'] = datetime.datetime.utcnow()

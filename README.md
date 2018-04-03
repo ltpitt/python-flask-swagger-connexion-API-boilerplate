@@ -3,13 +3,13 @@
 
 ## Prerequisites
 
-- Download and install requirements using [pip](https://pip.pypa.io/en/stable/installing/):
+- Download and install requirements using [pip](https://pip.pypa.io/en/stable/installing/):  
 `pip install -f requirements.txt`
 
 ## How to use
 
 - Clone this repo locally
-- Run the script:
+- Run the script:  
 `python app.py`
 
 ## Release History
